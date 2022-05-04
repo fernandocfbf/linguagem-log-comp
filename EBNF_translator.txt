@@ -4,6 +4,7 @@ ESTRUTURA -------------
 ; = wwaa
 ( = awaw
 ) = wawa
+, = aaww
 
 OPERADORES -------------
 = = dddd 
@@ -19,8 +20,10 @@ OPERADORES -------------
 ! = dada
 
 FUNÇÕES -------------
-while = aaad
-if = aada
-else = adaa
-printf = daaa
+while = aaas
+if = aasa
+else = asaa
+printf = saaa
 scanf = aaaa
+def = aass
+return = saas

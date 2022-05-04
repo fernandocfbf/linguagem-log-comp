@@ -4,11 +4,13 @@ STATEMENT = (( λ | ASSIGNMENT | PRINT), "wwaa") | (BLOCK | WHILE | IF) ;
 
 ASSIGNMENT = IDENTIFIER, "dddd", RELEXPRESSION ;
 
-PRINT = "daaa", "awaw", RELEXPRESSION, "wawa" ;
+PRINT = "saaa", "awaw", RELEXPRESSION, "wawa" ;
 
-WHILE = "aaad", "awaw", RELEXPRESSION, "wawa", STATEMENT ;
+FUNCTION = "aass", IDENTIFIER, "awaw",  IDENTIFIER, {"aaww", IDENTIFIER}, "wawa", "awww", {STATEMENT}, {"saas", {IDENTIFIER, NUMBER}}, "wwwa";
 
-IF = "aada" , "awaw", RELEXPRESSION, "wawa", STATEMENT, {"adaa", STATEMENT} ;
+WHILE = "aaas", "awaw", RELEXPRESSION, "wawa", STATEMENT ;
+
+IF = "aasa" , "awaw", RELEXPRESSION, "wawa", STATEMENT, {"asaa", STATEMENT} ;
 
 RELEXPRESSION = TERM, { ("ddda" | "ddad" | "dadd"), EXPRESSION } ;
 
