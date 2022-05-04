@@ -1,0 +1,30 @@
+BLOCK = "aww", { STATEMENT }, "wwa" ;
+
+STATEMENT = (( λ | ASSIGNMENT | PRINT), "wwaa") | (BLOCK | WHILE | IF) ;
+
+ASSIGNMENT = IDENTIFIER, "dddd", RELEXPRESSION ;
+
+PRINT = "daaa", "awaw", RELEXPRESSION, "wawa" ;
+
+WHILE = "aaad", "awaw", RELEXPRESSION, "wawa", STATEMENT ;
+
+IF = "aada" , "awaw", RELEXPRESSION, "wawa", STATEMENT, {"adaa", STATEMENT} ;
+
+RELEXPRESSION = TERM, { ("ddda" | "ddad" | "dadd"), EXPRESSION } ;
+
+EXPRESSION = TERM, { ("addd" | "aadd" | "adda"), TERM } ;
+
+TERM = FACTOR, { ("daad" | "ddaa" | "adad"), FACTOR } ;
+
+FACTOR = (("addd" | "aadd" | "dada"), FACTOR) | NUMBER | "awaw", RELEXPRESSION, "wawa" | IDENTIFIER | SCANF;
+
+SCANF = "aaaa", "awaw", "wawa" ;
+
+IDENTIFIER = LETTER, { LETTER | DIGIT } ;
+
+NUMBER = DIGIT, { DIGIT } ;
+
+LETTER = ( "A" | "W" | "D" | "S" ) ;
+
+DIGIT = ( 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 0 ) ;
+
