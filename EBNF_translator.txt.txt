@@ -1,0 +1,26 @@
+ESTRUTURA -------------
+{ = awww
+} = wwwa
+; = wwaa
+( = awaw
+) = wawa
+
+OPERADORES -------------
+= = dddd 
+== = ddda
+> = ddad
+< = dadd
++ = addd
+- = aadd
+* = daad
+/ = ddaa
+|| = adda
+&& = adad
+! = dada
+
+FUNÇÕES -------------
+while = aaad
+if = aada
+else = adaa
+printf = daaa
+scanf = aaaa
