@@ -8,9 +8,7 @@ int yyerror(char *s);
 %token IDENTIFIER INTEGER 
 %token EQUAL CEQ CLT CGT LPAREN RPAREN LBRACE RBRACE COMMA SEMICOLON
 %token PLUS MINUS MUL DIV NOT OR AND
-%token PRINT SCANF WHILE IF ELSE DEF RETURN
-
-
+%token PRINTF SCANF WHILE IF ELSE DEF RETURN
 
 %start program
 
@@ -18,33 +16,60 @@ int yyerror(char *s);
 
 program: block ;
 
-block: LBRACE statement RBRACE;
+block: 
+    LBRACE statement RBRACE;
 
-statement: assigment SEMICOLON | print SEMICOLON |  SEMICOLON | block | while | if;
+statement: 
+    assigment SEMICOLON |
+    print SEMICOLON     |
+    block               |
+    while               |
+    if                  |
+    SEMICOLON;
 
-assigment: IDENTIFIER EQUAL relexpression;
+assigment: 
+    IDENTIFIER EQUAL relexpression;
 
-print: PRINTF LPAREN relexpression RPAREN;
+print: 
+    PRINTF LPAREN relexpression RPAREN;
 
-while: WHILE LPAREN relexpression RPAREN statement;
+while: 
+    WHILE LPAREN relexpression RPAREN statement;
 
-if: IF LPAREN relexpression RPAREN statement else;
+if: 
+    IF LPAREN relexpression RPAREN statement else;
 
-else: ELSE statement |  ;
+else: 
+    ELSE statement |
+    ;
 
-relexpression: term relexpression_part2;
+relexpression: 
+    expression CEQ expression |
+    expression CGT expression |
+    expression CLT expression |
+    ;
 
-relexpression_part2: CEQ expression | CGT expression | CLT expression | ;
+expression: 
+    term PLUS term |
+    term MINUS term |
+    term OR term |
+    term;
 
-expression: term expression_part2;
+term: 
+    factor      |
+    factor MUL factor  |
+    factor DIV factor  |
+    factor AND factor |
+    ;
 
-expression_part2: PLUS term | MINUS term | OR term | ;
-
-term: factor term_part2;
-
-term_part2: MUL factor | DIV factor | AND  factor | ;
-
-factor: PLUS factor | MINUS factor | NOT factor | INTEGER | IDENTIFIER | LPAREN relexpression RPAREN | SCANF LPAREN RPAREN;
+factor: 
+    PLUS factor                 |
+    MINUS factor                |
+    NOT factor                  |
+    INTEGER                     |
+    IDENTIFIER                  |
+    LPAREN relexpression RPAREN |
+    SCANF LPAREN RPAREN;
 
 %%
 

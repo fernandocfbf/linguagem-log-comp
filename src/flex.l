@@ -7,7 +7,8 @@
 %%
 
 [ \t\n]                 
-[w | a | s | d][w | a | s | d | 0-9_]   return IDENTIFIER;
+[w | a | s | d][w | a | s | d | 0-9]    return IDENTIFIER;
+[0-9]+                                  return INTEGER;
 "dddd"                                  return EQUAL;
 "ddda"                                  return CEQ;
 "dadd"                                  return CLT;

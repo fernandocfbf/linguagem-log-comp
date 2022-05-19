@@ -68,7 +68,7 @@ extern int yydebug;
     NOT = 274,
     OR = 275,
     AND = 276,
-    PRINT = 277,
+    PRINTF = 277,
     SCANF = 278,
     WHILE = 279,
     IF = 280,
