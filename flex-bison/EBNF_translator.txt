@@ -27,3 +27,8 @@ printf = saaa
 scanf = aaaa
 def = aass
 return = saas
+
+TIPOS -------------
+int = asss
+str = sssa
+void = ssss
