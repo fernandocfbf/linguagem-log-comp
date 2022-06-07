@@ -1,5 +1,5 @@
 from src.constants.reserved import RESERVED_WORDS
-from src.constants.tokens import ALL_TOKENS, IGNORE_TOKEN, POSSIBLE_DUAL_TOKENS
+from src.constants.tokens import ALL_TOKENS_TRANSLATED, IGNORE_TOKEN, POSSIBLE_DUAL_TOKENS_TRANSLATED
 from src.constants.types import TYPES
 from src.constants.valid_chars import VALID_CHARS
 from src.classes.Token import Token
@@ -34,19 +34,8 @@ class Tokenizer:
                 self.actual = Token("EOF", "")
                 return self.actual
         
-
         current_token = self.origin[self.position]     
         
-        
-        # if current_token in POSSIBLE_DUAL_TOKENS:
-        #     dual_token = current_token
-        #     self.position += 1
-        #     while (self.origin[self.position] == current_token):
-        #         dual_token += current_token
-        #         self.position += 1
-        #     self.actual = Token(ALL_TOKENS[dual_token], "")
-        
-
         if current_token == '"':
             self.position += 1
             candidate = ""
@@ -55,10 +44,6 @@ class Tokenizer:
                 self.position += 1
             self.position += 1
             self.actual = Token("string", candidate)
-
-        #elif current_token in ALL_TOKENS:
-        #    self.position += 1
-        #    self.actual = Token(ALL_TOKENS[current_token], "")
 
         elif current_token.isnumeric():
             number = current_token
@@ -84,9 +69,9 @@ class Tokenizer:
                 self.actual = Token("reserved", RESERVED_WORDS[variable])
             elif variable in TYPES.keys():
                 self.actual = Token("type", TYPES[variable])
-            elif variable in ALL_TOKENS:
+            elif variable in ALL_TOKENS_TRANSLATED:
                 self.position += 1
-                self.actual = Token(ALL_TOKENS[variable], "")
+                self.actual = Token(ALL_TOKENS_TRANSLATED[variable], "")
             else:
                 self.actual = Token("identifier", variable)
         
